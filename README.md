@@ -1,40 +1,4 @@
-/* 添加到Markdown文件开头 */
-<style>
-  body {
-    font-family: 'Microsoft YaHei', sans-serif;
-    background-color: #fff9fb;
-    color: #5a5475;
-    line-height: 1.6;
-  }
-  h1, h2, h3 {
-    color: #e91e63;
-    border-bottom: 1px dashed #ffb6c1;
-    padding-bottom: 5px;
-  }
-  blockquote {
-    background: #fff0f5;
-    border-left: 3px solid #ff9eb5;
-    padding: 10px 15px;
-    border-radius: 0 10px 10px 0;
-  }
-  table {
-    border: 2px solid #ffd1dc;
-    border-collapse: collapse;
-    margin: 15px 0;
-    background: #fffafb;
-  }
-  th {
-    background-color: #ffe4e9;
-  }
-  td, th {
-    border: 1px solid #ffd1dc;
-    padding: 8px 12px;
-  }
-  code {
-    background: #fff0f5;
-    color: #e91e63;
-  }
-</style>
+
 # CS-Study
 - c++的语法
 - STL容器
@@ -59,20 +23,32 @@
 - 英语
 > 坚持每天更新！
 
-# ✨ 二次元学习日记 ✨ | {{年}}-{{月}}
+# 📚 学习日记 - YYYY年MM月DD日（星期X）
 
-> **连续记录**: {{天数}}天 🎉  
-> **累计学习**: {{总时长}}小时 ⏳  
-> **当前等级**: Lv.{{等级}} 🎮  
-> **今日心情**: {{心情图标}}  
+## ⏰ 今日学习时长
+- 总学习时长：X 小时
+- 各项学习时长：
+  - 课程/书籍名称：X 分钟
+  - 项目实践：X 分钟
+  - 复习/笔记整理：X 分钟
 
 ---
 
-## 🌸 今日修行 | {{日期}} ({{星期}})
+## ✅ 今日完成事项
+- [x] 学完《XXX课程》第X章
+- [x] 完成 LeetCode 第 X 题
+- [x] 阅读 XX 技术文章
+- [ ] 复习昨天内容（未完成）
 
-```mermaid
-pie
-    title 今日能量分配
-    “{{科目1}}” ： {{时长1}}
-    “{{科目2}}” ： {{时长2}}
-    “{{科目3}}” ： {{时长3}}
+---
+
+## 💡 今日收获 / 笔记
+- 学到了 XX 概念，例如：
+  - XX 是什么，有什么作用？
+  - XX 和 YY 有哪些区别？
+- 示例代码：
+  ```cpp
+  int main() {
+      std::cout << "Hello, World!" << std::endl;
+      return 0;
+  }
