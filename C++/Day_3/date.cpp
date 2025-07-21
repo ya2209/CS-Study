@@ -274,6 +274,76 @@ int DaysBetween(const Date& other) const
     return count;
 }
 // qisil....
+Date operator -(const int& day)
+{
+    Date d1=*this;
+    d1.day-=day;
+    while(d1.day<=0)
+    {
+        d1.day+=Getmonth(d1.year,d1.month);
+        d1.month--;
+        if(d1.month==0)
+        {
+            d1.year--;
+            d1.month=12;
+        }
+        return d1;
+    }
+}
+   Date& operator -=(const int& day)
+    {
+        this->day-=day;
+        while(this->day<=0)
+        {
+            this->day+=Getmonth(this->year,this->month);
+            this->month--;
+            if(this->month==0)
+            {
+                this->year--;
+                this->month=12;
+            }
+        }
+        return *this;
+    }
+
+    Date& operator --(int day)
+    {
+        this->day--;
+        if(this->day<=0)
+        {
+            this->day+=Getmonth(this->year,this->month);
+            this->month--;
+            if(this->month==0)
+            {
+                this->year--;
+                this->month=12;
+            }
+
+        }
+            return *this;
+
+    }
+    
+    Date& operator ++(int day)
+    {
+        this->day++;
+        if(this->day>Getmonth(this->year,this->month))
+        {
+            this->day-=Getmonth(this->year,this->month);
+            this->month++;
+            if(this->month==13)
+            {
+                this->year++;
+                this->month=1;
+            }
+
+        }
+            return *this;
+
+    }
+    
+
+
 
 
     private:
@@ -287,9 +357,16 @@ int DaysBetween(const Date& other) const
 int main()
 {
     Date s1(2025,7,20);
-    Date s2(2028,12,21);
+    Date s2(2028,1,1);
     int days = s1.DaysBetween(s2);
+    s1-=20;
+    s1.Print();
+    s2--;
+    s2.Print();
+    
     cout << "Days between: " << days << endl;
+    
+
 
    
 

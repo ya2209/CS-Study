@@ -70,3 +70,4 @@ using std::endl;
 ![](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\7.png)
 
 将array中的数据依次给e；利用auto自动推其类型
+![]("D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\1.png")
