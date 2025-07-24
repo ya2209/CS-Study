@@ -277,15 +277,15 @@ Date operator -(int day)
         this->day-=day;
         while(this->day<=0)
         {
-            this->day+=Getmonth(this->year,this->month);
-            this->month--;
-            if(this->month==0)
+           this->month--;
+           if(this->month==0)
             {
                 this->year--;
                 this->month=12;
+              this->day+=Getmonth(this->year,this->month);
             }
-        }
         return *this;
+        }
     }
 
     Date& operator --(int)
@@ -307,6 +307,7 @@ Date operator -(int day)
 
     }
     
+    Date& operator ++()
     Date& operator ++()
     {
             *this+=1;
