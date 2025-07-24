@@ -46,27 +46,26 @@ using std::endl;
 >
 > c++符号表里的名称会带参数 
 
-![](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\1.png)
-
-![](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\2.png)
+![alt text](../Pictures/C++/1.png)
+![alt text](../Pictures/C++/2.png)
 
 ## 4.extern"C"
 
-![](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\3.png)
+![!\[\](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\3.png)](../Pictures/C++/3.png)
 
 -  本来c程序不能识别C++程序（链接时，符号表名称不同）在C++程序前加上extern"C"可以使c语言识别，c++也可以识别。
 
 ## 5.引用&
 
-![](![alt text](4-1.png))
-![](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\5.png)
+![!\[\](!\[alt text\](4-1.png))](../Pictures/C++/4.png)
+![!\[\](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\5.png)](../Pictures/C++/5.png)
 
 - 做参数（提高效率）
 - 做返回值（提高效率）
 
 ## 6.范围for
 
-![](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\7.png)
+![alt text](../Pictures/C++/7.png)
 
 将array中的数据依次给e；利用auto自动推其类型
 
