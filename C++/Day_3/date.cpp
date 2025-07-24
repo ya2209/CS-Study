@@ -284,11 +284,11 @@ Date operator -(int day)
                 this->month=12;
               this->day+=Getmonth(this->year,this->month);
             }
-        return *this;
         }
+        return *this;
     }
 
-    Date& operator --(int)
+    Date operator --(int)
     {
         Date d=*this;
         *this-=1;
@@ -307,7 +307,14 @@ Date operator -(int day)
 
     }
     
-    Date& operator ++()
+    Date operator ++(int)
+    {   Date d=*this;
+            *this+=1;
+        
+            return d;
+
+    }
+
     Date& operator ++()
     {
             *this+=1;
@@ -315,15 +322,7 @@ Date operator -(int day)
             return *this;
 
     }
-    Date& operator ++(int)
-    {
-            Date d=*this;
-            *this+=1;
-        
-            return d;
-
-    }
-    
+   
 
 
 
