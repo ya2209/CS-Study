@@ -180,17 +180,7 @@ class Date{
     Date operator+(const int& day)
     {
         Date ret=*this;
-        ret.day+=day;
-        while(ret.day>Getmonth(ret.year,ret.month))
-        {
-            ret.day-=Getmonth(ret.year,ret.month);
-            ret.month++;
-            if(ret.month==13)
-            {
-                ret.year++;
-                ret.month=1;
-            }
-        }
+        ret+=day;
         return ret;
     }
 
@@ -274,23 +264,15 @@ int DaysBetween(const Date& other) const
     return count;
 }
 // qisil....
-Date operator -(const int& day)
+Date operator -(int day)
 {
-    Date d1=*this;
-    d1.day-=day;
-    while(d1.day<=0)
-    {
-        d1.day+=Getmonth(d1.year,d1.month);
-        d1.month--;
-        if(d1.month==0)
-        {
-            d1.year--;
-            d1.month=12;
-        }
-        return d1;
-    }
+    Date d1(*this);
+    d1-=day;
+   
+    return d1;
+    
 }
-   Date& operator -=(const int& day)
+   Date& operator -=(int day)
     {
         this->day-=day;
         while(this->day<=0)
@@ -306,39 +288,38 @@ Date operator -(const int& day)
         return *this;
     }
 
-    Date& operator --(int day)
+    Date& operator --(int)
     {
-        this->day--;
-        if(this->day<=0)
-        {
-            this->day+=Getmonth(this->year,this->month);
-            this->month--;
-            if(this->month==0)
-            {
-                this->year--;
-                this->month=12;
-            }
+        Date d=*this;
+        *this-=1;
+        return d;
+       
+        
 
-        }
-            return *this;
+    }
+     Date& operator --()
+    {
+      
+        *this-=1;
+        return *this;
+       
+        
 
     }
     
-    Date& operator ++(int day)
+    Date& operator ++()
     {
-        this->day++;
-        if(this->day>Getmonth(this->year,this->month))
-        {
-            this->day-=Getmonth(this->year,this->month);
-            this->month++;
-            if(this->month==13)
-            {
-                this->year++;
-                this->month=1;
-            }
-
-        }
+            *this+=1;
+        
             return *this;
+
+    }
+    Date& operator ++(int)
+    {
+            Date d=*this;
+            *this+=1;
+        
+            return d;
 
     }
     

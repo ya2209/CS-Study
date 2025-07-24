@@ -58,8 +58,7 @@ using std::endl;
 
 ## 5.引用&
 
-![](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\4.png)
-
+![](![alt text](4-1.png))
 ![](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\5.png)
 
 - 做参数（提高效率）
@@ -70,4 +69,5 @@ using std::endl;
 ![](D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\7.png)
 
 将array中的数据依次给e；利用auto自动推其类型
-![]("D:\Strive\Computer study\study\len_c++\note\note_photo\day_1\1.png")
+
+
