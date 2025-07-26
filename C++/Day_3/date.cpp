@@ -1,8 +1,9 @@
 #include <iostream>
-#include <complex>
 using namespace std;
 class Date
 {
+    friend ostream &operator<<(ostream &out, const Date &d);
+    friend istream &operator>>(istream &in,const Date &d);
 public:
     int Getmonth(const int &y, const int &m)
     {
@@ -77,30 +78,7 @@ public:
         }
     }
     bool operator<=(const Date &d)
-    { /*
-         if(year==d.year)
-         {
-             if(month==d.month)
-             {
-                 if(day<=d.day)
-                 {
-                     return true;
-                 }
-             }
-             else if(month<d.month)
-
-             {
-                 return true;
-             }
-         }
-         else if(year<d.year)
-         {
-             return true;
-         }
-         else
-         {
-             return false;
-         }*/
+    {
         if (*this < d || *this == d)
         {
             return true;
@@ -109,57 +87,17 @@ public:
         {
             return false;
         }
-    }
+    } // 操作符重载
 
     bool operator>(const Date &d)
     {
-        /* if(year==d.year)
-         {
-             if(month==d.month)
-             {
-                 if(day>d.day)
-                 return true;
-             }
-             else if(month>d.month)
-             {
-                 return true;
-             }
-         }
-         else if(year>d.year)
-         {
-             return true;
-         }
-         else
-         {
-             return false;
-         }*/
+
         return !(*this <= d);
     }
     bool operator>=(const Date &d)
 
     {
-        /* if(year==d.year)
-        {
-            if(month==d.month)
-            {
-                if(day>d.day)
-                return true;
-            }
-            else if(month>d.month)
-            {
-                return true;
-            }
-        }
-        else if(year>d.year)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-     }//操作符重载
-        */
+
         return !(*this < d);
     }
 
@@ -169,14 +107,15 @@ public:
         return !(*this == d);
     }
 
-    Date operator+(const int &day)
+   
+    Date operator+(int day)
     {
         Date ret = *this;
         ret += day;
         return ret;
     }
 
-    Date &operator+=(const int &day)
+    Date &operator+=(int day)
     {
         this->day += day;
         while (this->day > Getmonth(this->year, this->month))
@@ -191,53 +130,6 @@ public:
         }
         return *this;
     }
-
-    /* int DateSub(Date& d2)
-     {
-         int d=0;
-         int count =0;
-         while(*this!=d2)
-         {
-             if(*this>d2)
-             {
-                 d2.day++;
-                 count++;
-                 if(d2.day>Getmonth(d2.year,d2.month))
-                 {
-                     d2.month++;
-
-                 }
-                 if(d2.month==13)
-                 {
-                     d2.year++;
-                     d2.month=1;
-                 }
-             }
-             else if(*this<d2)
-             {
-                 Date d1=*this;
-                  d1.day++;
-                 count++;
-                 if(d1.day>Getmonth(d1.year,d1.month))
-                 {
-                     d1.month++;
-
-                 }
-                 if(d1.month==13)
-                 {
-                     d1.year++;
-                     d1.month=1;
-                 }
-             }
-
-         }
-         cout<<"相差的天数为："<<count<<endl;
-
-
-      return count;
-
-     }想复杂了*/
-    // ...existing code...
 
     int DaysBetween(const Date &other) const
     {
@@ -257,13 +149,7 @@ public:
         return count;
     }
     // qisil....
-    Date operator-(int day)
-    {
-        Date d1(*this);
-        d1 -= day;
 
-        return d1;
-    }
     Date &operator-=(int day)
     {
         this->day -= day;
@@ -278,6 +164,14 @@ public:
             }
         }
         return *this;
+    }
+
+    Date operator-(int day)
+    {
+        Date d1(*this);
+        d1 -= day;
+
+        return d1;
     }
 
     Date operator--(int)
@@ -312,7 +206,20 @@ private:
     int year;
     int month;
     int day;
+    
 };
+
+ostream &operator<<(ostream &out,const Date &d)
+{
+    out << d.year << ":" << d.month << ":" << d.day << endl;
+    return out;
+}
+
+istream &operator>>(istream &in,const Date &d)
+{
+    in>>d.year>>d.month>>d.day;
+    return in;
+}
 
 int main()
 {
@@ -325,6 +232,7 @@ int main()
     s2.Print();
 
     cout << "Days between: " << days << endl;
+    cout << s1 << s2;
 
     return 0;
 }
