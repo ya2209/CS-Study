@@ -34,7 +34,7 @@ void InitLnode(LinkLnode L)
     for(i=n;i>0;n--)
     {
         p=(LinkLnode)malloc(sizeof(Lnode));
-        scanf(&p->data);
+        scanf("%d",&p->data);
         p->next=L->next;
         L->next=p;
     }
@@ -50,7 +50,7 @@ void InitLnode(LinkLnode L)
     for(i=0;i<n;i++)
     {
         LinkLnode p=(LinkLnode)malloc(sizeof(Lnode));
-        scanf(&p->data);
+        scanf("%d",&p->data);
         p->next=NULL;
         r->next=p;
         p=r;
@@ -84,9 +84,10 @@ void InitLnode(LinkLnode L)
     }
  }
  //查找链表元素,返回地址
- int  GetData(LinkLnode L,int e)
+ Lnode*  GetData(LinkLnode L,int e)
  {
-    LinkLnode p=L->next;
+     static LinkLnode p;
+     p=L->next;
     while(p&&p->data!=e)
     {
         p=p->next;
@@ -160,4 +161,8 @@ Status LnodeDelete(LinkLnode L, int i,int *e)
 	free(q);
 	return OK;
 
+}
+int main()
+{
+    return 0;
 }

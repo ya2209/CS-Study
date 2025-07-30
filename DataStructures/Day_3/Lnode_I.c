@@ -144,6 +144,32 @@ void MergeSqlist(sqlist La,sqlist Lb)
         Lc->next=La->next?La->next:Lb->next;
     }
 */
+void MergeLnode(LinkLnode La,LinkLnode Lb,LinkLnode Lc)
+{
+    LinkLnode pa=La->next;
+    LinkLnode pb=Lb->next;
+    LinkLnode pc=Lc=La;
+    while(pa&&pb)
+    {
+        if(pa->data<=pb->data)
+        {
+            pc->next=pa;
+            pc=pa;
+            pa=pa->next;
+
+        }
+        else
+        {
+            pc->next=pb;
+            pc=pb;
+            pb=pb->next;
+        }
+
+    }
+    pc->next=pa?pa:pb;
+    free(Lb);
+}
+
 
 int main()
 {

@@ -120,7 +120,7 @@ Status IsEmpty_LinkStack(LinkStack s)
 //链栈入栈
 Status L_Push(LinkStack s,Elemtypedef e)
 {
-    LinkStack p=(Elemtypedef*)malloc(sizeof(Elemtypedef));
+    LinkStack p=(LinkStack)malloc(sizeof(StackNode));
     p->data=e;
     p->next=s;
     s=p;
@@ -134,6 +134,11 @@ Status L_Pop(LinkStack s,Elemtypedef *e)
     *e=s->data;
     p=s;
     s=s->next;
+    free(p);
     return OK;
 
+}
+int main()
+{
+    return 0;
 }
