@@ -53,6 +53,10 @@ Elemtypedef GetHead(SqQueue Q)
     if(Q.front!=Q.rear)
     return Q.base[Q.front];
 }
+Status QueueEmpty(SqQueue Q)
+{
+    return Q.front==Q.rear;
+}
 
 
 //链队
