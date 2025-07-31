@@ -14,7 +14,7 @@ typedef struct
     int length;
 }SString;
 
-
+/*
 typedef struct Chnuk
 {
     char ch[CHNUKSIZE];
@@ -25,7 +25,7 @@ typedef struct
 {
 Chunk *head,*tail;//串的头指针，尾指针
 int curlen//串的当前长度
-}LString;
+}LString;*/
 
 int Index_BF(SString S,SString T)
 {
@@ -56,3 +56,60 @@ int Index_BF(SString S,SString T)
 
    }
 }//时间复杂度O(n*m)
+
+void Get_next(SString T,int next[])
+{
+    int i=1;
+    int j=0;
+    
+    next[1]=0;
+    while(i<T.length)
+    {
+        if(j==0||T.ch[i]==T.ch[j])
+        {
+            ++i;
+            ++j;
+            next[i]=j;
+        }
+        else
+        {
+            j=next[j];
+        }
+
+    }  
+}
+
+int Index_KMP(SString S,SString T)
+{
+    int i=1;
+   int j=1;
+    int next[T.length+1];
+    Get_next(T,next);
+
+   while(i<=S.length&&j<=T.length)
+   {
+    if(S.ch[i]==T.ch[j]||j==0)
+    {
+        ++i;
+        ++j;
+    }
+    else
+    {
+        j=next[j];
+    }
+    if(j>T.length)
+    {
+        return i-T.length;
+      
+
+    }
+    else
+    {
+        return 0;
+    }
+    
+
+   }
+
+
+}//不好理解
